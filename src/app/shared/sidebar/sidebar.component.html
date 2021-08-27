@@ -1,0 +1,33 @@
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sidenav shadow-right sidenav-light">
+            <div class="sidenav-menu">
+                <div class="nav accordion" id="accordionSidenav" *ngFor="let item of menuItems">
+                    <!-- Sidenav Menu Heading (Account)-->
+                    <!-- * * Note: * * Visible only on and above the sm breakpoint-->
+                    <!-- Sidenav Menu Heading (Core)-->
+                    <div class="sidenav-menu-heading">{{item.encabezado}}</div>
+                    <!-- Sidenav Accordion (Dashboard)-->
+                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
+                        <!-- //// TODO: ICONO -->
+                        <div class="nav-link-icon"><i [class]="item.icono"></i></div>
+                        {{item.titulo}}
+                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseDashboards" data-bs-parent="#accordionSidenav">
+                        <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages" *ngFor="let subMenuItem of item.submenu">
+                            <a class="nav-link" [routerLink]="subMenuItem.url" routerLinkActive="active">{{subMenuItem.titulo}}</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidenav Footer-->
+            <div class="sidenav-footer">
+                <div class="sidenav-footer-content">
+                    <div class="sidenav-footer-subtitle">Logged in as:</div>
+                    <div class="sidenav-footer-title">Valerie Luna</div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
