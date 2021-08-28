@@ -16,7 +16,8 @@
                     </a>
                     <div class="collapse" id="collapseDashboards" data-bs-parent="#accordionSidenav">
                         <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages" *ngFor="let subMenuItem of item.submenu">
-                            <a class="nav-link" [routerLink]="subMenuItem.url" routerLinkActive="active">{{subMenuItem.titulo}}</a>
+                            <div class="nav-link-icon"></div>
+                            <a class="nav-link" [routerLink]="subMenuItem.url" routerLinkActive="active"><i [class]="item.icono" style="margin-right: 8px;"></i> {{subMenuItem.titulo}}</a>
                         </nav>
                     </div>
                 </div>
