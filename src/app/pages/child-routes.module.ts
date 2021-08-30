@@ -7,7 +7,7 @@ import { PruebaComponent } from './prueba/prueba.component';
 const childRoutes: Routes = [
   { path: 'prueba', component: PruebaComponent },
   { path: 'empleado', component: EmpleadoComponent },
-  { path: '/', component: DashboardComponent },
+  { path: 'main', component: DashboardComponent },
 ]
 @NgModule({
   imports: [ RouterModule.forChild(childRoutes) ],
