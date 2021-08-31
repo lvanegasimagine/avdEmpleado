@@ -58,29 +58,28 @@
                 </mat-step>
                 <!-- Puesto -->
                 <mat-step>
-                  <ng-template matStepLabel>PUESTO</ng-template>
+                  <ng-template matStepLabel>PUESTO LABORAL</ng-template>
                   <ng-template matStepContent>
-          
-                  <div class="form-group row mt-4">
+                    <div class="form-group row mt-4">
                       <div class="col">
                           <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Area"  placeholder="Area" maxlength="25" formControlName="area">
                       </div>
                       <div class="col">
                           <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Cargo" placeholder="Cargo" maxlength="25" formControlName="cargo">
                       </div>
-                  </div>
-                  <div class="form-group row mt-2">
+                    </div>
+                    <div class="form-group row mt-2">
                       <div class="col">
                           <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Nivel Academico" placeholder="Nivel Academico" maxlength="25" formControlName="estudios">
                       </div>
                       <div class="col">
                           <input type="date" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Fecha de Inicio" placeholder="Fecha Inicio" formControlName="fechaInicio">
                       </div>
-                  </div>
-                  <div class="mt-4">
-                        <button class="mr-2" mat-flat-button color="accent" matStepperPrevious>Atras</button>
-                        <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>        
-                  </div>
+                    </div>
+                    <div class="mt-4">
+                          <button class="mr-2" mat-flat-button color="accent" matStepperPrevious>Atras</button>
+                          <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>        
+                    </div>
                   </ng-template>
                 </mat-step>
                 <!-- HIJOS -->
@@ -92,15 +91,15 @@
                         <div formArrayName="hijos" *ngFor="let t of hijos.controls; let i = index">
                             <div class="row form-group" [formGroupName]="i">
                                 <div class="col-md-4">
-                                    <input formControlName='nombre' id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Nombre Completo" />
+                                    <input formControlName='nombre' data-bs-toggle="tooltip" data-bs-placement="top" title="Nombre"  id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Nombre Completo" />
                                 </div>
           
                                 <div class="col-md-3">
-                                    <input formControlName='edad' id="{{'edad' + i}}" type="number" class="form-control mb-4" placeholder="Edad" />
+                                    <input formControlName='edad' data-bs-toggle="tooltip" data-bs-placement="top" title="Edad"  id="{{'edad' + i}}" type="number" class="form-control mb-4" placeholder="Edad" />
                                 </div>
           
                                 <div class="col-md-3">
-                                    <input formControlName='ocupacion' id="{{'ocupacion' + i}}" class="form-control mb-4" placeholder="Ocupación" />
+                                    <input formControlName='ocupacion' data-bs-toggle="tooltip" data-bs-placement="top" title="Ocupación"  id="{{'ocupacion' + i}}" class="form-control mb-4" placeholder="Ocupación" />
                                 </div>
                                 <div class="col-md-1">
                                     <button class="btn btn-danger" (click)='borrarHijos(i)'><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -127,15 +126,15 @@
                           <div formArrayName="laboral" *ngFor="let t of laboral.controls; let i = index">
                               <div class="row form-group" [formGroupName]="i">
                                   <div class="col-md-4">
-                                      <input formControlName='empresa' id="{{'empresa'+i}}" type="text" class="form-control mb-4" placeholder="Empresa" />
+                                      <input formControlName='empresa' data-bs-toggle="tooltip" data-bs-placement="top" title="Empresa" id="{{'empresa'+i}}" type="text" class="form-control mb-4" placeholder="Empresa" />
                                   </div>
           
                                   <div class="col-md-3">
-                                      <input formControlName='antiguedad' id="{{'antiguedad' + i}}" type="number" class="form-control mb-4" placeholder="Antigüedad" />
+                                      <input formControlName='antiguedad' data-bs-toggle="tooltip" data-bs-placement="top" title="Antiguedad" id="{{'antiguedad' + i}}" type="number" class="form-control mb-4" placeholder="Antigüedad" />
                                   </div>
           
                                   <div class="col-md-3">
-                                      <input formControlName='cargo' id="{{'cargo' + i}}" class="form-control mb-4" placeholder="Cargo" />
+                                      <input formControlName='cargo' data-bs-toggle="tooltip" data-bs-placement="top" title="Cargo" id="{{'cargo' + i}}" class="form-control mb-4" placeholder="Cargo" />
                                   </div>
                                   <div class="col-md-1">
                                       <button class="btn btn-danger" (click)='borrarLaboral(i)'><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -161,15 +160,15 @@
                           <div formArrayName="referencia" *ngFor="let t of referencia.controls; let i = index">
                               <div class="row form-group" [formGroupName]="i">
                                   <div class="col-md-4">
-                                      <input formControlName='nombre' id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Nombre" />
+                                      <input formControlName='nombre' data-bs-toggle="tooltip" data-bs-placement="top" title="Nombre" id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Nombre" />
                                   </div>
           
                                   <div class="col-md-3">
-                                      <input formControlName='apellido' id="{{'apellido' + i}}" class="form-control mb-4" placeholder="Apellido" />
+                                      <input formControlName='apellido' data-bs-toggle="tooltip" data-bs-placement="top" title="Apellido" id="{{'apellido' + i}}" class="form-control mb-4" placeholder="Apellido" />
                                   </div>
           
                                   <div class="col-md-3">
-                                      <input formControlName='celular' id="{{'celular' + i}}" type="number" class="form-control mb-4" placeholder="Celular" />
+                                      <input formControlName='celular' data-bs-toggle="tooltip" data-bs-placement="top" title="Celular" id="{{'celular' + i}}" type="number" class="form-control mb-4" placeholder="Celular" />
                                   </div>
                                   <div class="col-md-1">
                                       <button class="btn btn-danger" (click)='borrarReferencia(i)'><i class="fa fa-trash" aria-hidden="true"></i></button>
