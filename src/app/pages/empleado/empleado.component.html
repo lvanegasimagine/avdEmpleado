@@ -1,7 +1,7 @@
 <main>
     <header class="page-header page-header-dark pb-10">
         <div class="container">
-            <h1>Formularios <small> Empleados </small></h1>
+            <h1><small> Empleados </small></h1>
             <hr style="color: blue;">
         </div>
         <div class="container mt-5">
@@ -12,57 +12,48 @@
                   <ng-template matStepLabel>DATOS GENERALES</ng-template>
                   <ng-template matStepContent>
           
-                    <div class="form-group row">
-                      <div class="col-2 col-form-label">Nombre Completo: </div>
+                  <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="nombreNoValido" [class.is-valid]="nombreValido">
+                          <input type="text" class="form-control" placeholder="Nombre Completo" formControlName="nombre" [class.is-invalid]="nombreNoValido" [class.is-valid]="nombreValido">
                           <small *ngIf="nombreNoValido" class="text-danger">Digite Nombre</small>
                       </div>
                   </div>
-                  <div class="form-group row">
-                      <div class="col-2 col-form-label">Dirección: </div>
+                  <div class="form-group row mt-2">
                       <div class="col">
                           <input type="text" class="form-control" placeholder="Dirección" formControlName="direccion" [class.is-invalid]="direccionNoValido" [class.is-valid]="direccionValido">
                           <small *ngIf="direccionNoValido" class="text-danger">Digite Dirección</small>
                       </div>
                   </div>
-                  <div class="form-group row">
-                      <div class="col-2 col-form-label">Fecha Nacimiento: </div>
+                  <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="date" class="form-control" placeholder="Fecha Nacimiento" formControlName="fechaNacimiento">
+                          <input type="date" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Fecha de Nacimiento" placeholder="Fecha Nacimiento" formControlName="fechaNacimiento">
                       </div>
-                      <div class="col-2 col-form-label">Cedula: </div>
                       <div class="col">
                           <input type="text" class="form-control" placeholder="Celular" formControlName="cedula">
                       </div>
                   </div>
-                  <div class="form-group row">
-                      <div class="col-2 col-form-label">Estado Civil: </div>
+                  <div class="form-group row mt-2">
                       <div class="col">
                           <input type="text" class="form-control" placeholder="Estado Civil" formControlName="estadoCivil">
                       </div>
-                      <div class="col-2 col-form-label">Celular: </div>
                       <div class="col">
                           <input type="text" class="form-control" maxlength="8" placeholder="Celular" formControlName="celular">
                       </div>
-                      <div class="col-2 col-form-label">Inss: </div>
                       <div class="col">
                           <input type="text" class="form-control" placeholder="Inss" maxlength="8" formControlName="inss">
                       </div>
                   </div>
-                  <div class="form-group row">
-                      <div class="col-2 col-form-label">Correo Electronico: </div>
+                  <div class="form-group row mt-2">
                       <div class="col">
                           <input type="text" class="form-control" placeholder="Correo Electronico" maxlength="8" formControlName="email">
                       </div>
                   </div>
-                  <div class="form-group row">
-                      <div class="col-2 col-form-label">Contacto Emergencia: </div>
+                  <div class="form-group row mt-2">
                       <div class="col">
                           <input type="text" class="form-control" placeholder="Contacto" maxlength="8" formControlName="contacto">
                       </div>
                   </div>
-                  <button class="btn btn-info" matStepperNext>siguiente</button>
+                  <button class="btn btn-info next" matStepperNext>Siguiente</button>
                   </ng-template>
                 </mat-step>
                 <!-- Puesto -->
@@ -70,29 +61,26 @@
                   <ng-template matStepLabel>PUESTO</ng-template>
                   <ng-template matStepContent>
           
-                    <div class="form-group row">
-                      <div class="col-2 col-form-label">Area: </div>
+                  <div class="form-group row mt-4">
                       <div class="col">
                           <input type="text" class="form-control" placeholder="Area" maxlength="25" formControlName="area">
                       </div>
-                      <div class="col-2 col-form-label">Cargo: </div>
                       <div class="col">
                           <input type="text" class="form-control" placeholder="Cargo" maxlength="25" formControlName="cargo">
                       </div>
                   </div>
-                  <div class="form-group row">
-                      <div class="col-2 col-form-label">Nivel Academico: </div>
+                  <div class="form-group row mt-2">
                       <div class="col">
                           <input type="text" class="form-control" placeholder="Nivel Academico" maxlength="25" formControlName="estudios">
                       </div>
-                      <div class="col-2 col-form-label">Fecha de Inicio: </div>
                       <div class="col">
                           <input type="date" class="form-control" placeholder="Fecha Inicio" formControlName="fechaInicio">
                       </div>
                   </div>
-                    
-                    <button mat-flat-button color="accent" matStepperPrevious>Back</button>
-                    <button mat-flat-button color="primary" matStepperNext class="ml-2">Next</button>        
+                  <div class="mt-4">
+                        <button class="mr-2" mat-flat-button color="accent" matStepperPrevious>Atras</button>
+                        <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>        
+                  </div>
                   </ng-template>
                 </mat-step>
                 <!-- HIJOS -->
@@ -103,19 +91,16 @@
                     <div class="col">
                         <div formArrayName="hijos" *ngFor="let t of hijos.controls; let i = index">
                             <div class="row form-group" [formGroupName]="i">
-                                <div class="col form-group">
-                                    <div class="col-2 col-form-label">{{i+1}}</div>
-                                </div>
                                 <div class="col-md-4">
-                                    <input formControlName='nombre' id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Enter nombre" />
+                                    <input formControlName='nombre' id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Nombre Completo" />
                                 </div>
           
                                 <div class="col-md-3">
-                                    <input formControlName='edad' id="{{'edad' + i}}" type="number" class="form-control mb-4" placeholder="Enter edad " />
+                                    <input formControlName='edad' id="{{'edad' + i}}" type="number" class="form-control mb-4" placeholder="Edad" />
                                 </div>
           
                                 <div class="col-md-3">
-                                    <input formControlName='ocupacion' id="{{'ocupacion' + i}}" class="form-control mb-4" placeholder="Enter ocupacion " />
+                                    <input formControlName='ocupacion' id="{{'ocupacion' + i}}" class="form-control mb-4" placeholder="Ocupación" />
                                 </div>
                                 <div class="col-md-1">
                                     <button class="btn btn-danger" (click)='borrarHijos(i)'><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -124,11 +109,13 @@
                               </div>
                             </div>
                         </div>
-                        <button class="btn btn-success mt-3 mb-5 btn-block" type="button" (click)="agregarHijos()"> + Agregar Hijo</button>
+                        <button class="btn btn-success mt-3 mb-5 btn-block" style="float: right;" type="button" (click)="agregarHijos()"> + Agregar Hijo</button>
                     </div>
                   </div>
-                  <button mat-flat-button color="accent" matStepperPrevious>Back</button>
-                  <button mat-flat-button color="primary" matStepperNext class="ml-2">Next</button>
+                  <div class="mt-4">
+                    <button class="mr-2" mat-flat-button color="accent" matStepperPrevious>Atras</button>
+                    <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>        
+                  </div>
                 </mat-step>
                 <!-- EXPERIENCIA LABORAL -->
                 <mat-step>
@@ -139,19 +126,16 @@
                       <div class="col">
                           <div formArrayName="laboral" *ngFor="let t of laboral.controls; let i = index">
                               <div class="row form-group" [formGroupName]="i">
-                                  <div class="col form-group">
-                                      <div class="col-2 col-form-label">{{i+1}}</div>
-                                  </div>
                                   <div class="col-md-4">
-                                      <input formControlName='empresa' id="{{'empresa'+i}}" type="text" class="form-control mb-4" placeholder="Enter Empresa" />
+                                      <input formControlName='empresa' id="{{'empresa'+i}}" type="text" class="form-control mb-4" placeholder="Empresa" />
                                   </div>
           
                                   <div class="col-md-3">
-                                      <input formControlName='antiguedad' id="{{'antiguedad' + i}}" type="number" class="form-control mb-4" placeholder="Enter Antiguedad " />
+                                      <input formControlName='antiguedad' id="{{'antiguedad' + i}}" type="number" class="form-control mb-4" placeholder="Años Antiguedad" />
                                   </div>
           
                                   <div class="col-md-3">
-                                      <input formControlName='cargo' id="{{'cargo' + i}}" class="form-control mb-4" placeholder="Enter Cargo " />
+                                      <input formControlName='cargo' id="{{'cargo' + i}}" class="form-control mb-4" placeholder="Cargo" />
                                   </div>
                                   <div class="col-md-1">
                                       <button class="btn btn-danger" (click)='borrarLaboral(i)'><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -160,11 +144,13 @@
                                 </div>
                               </div>
                           </div>
-                          <button class="btn btn-success mt-3 mb-5 btn-block" type="button" (click)="agregarLaboral()"> + Agregar Experiencia Laboral</button>
+                          <button class="btn btn-success mt-3 mb-5 btn-block" type="button" (click)="agregarLaboral()" style="float: right;"> + Agregar Experiencia Laboral</button>
                       </div>
                   </div>
-                  <button mat-flat-button color="accent" matStepperPrevious>Back</button>
-                  <button mat-flat-button color="primary" matStepperNext class="ml-2">Next</button>
+                  <div class="mt-4">
+                    <button class="mr-2" mat-flat-button color="accent" matStepperPrevious>Atras</button>
+                    <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>        
+                  </div>
                 </mat-step>
                 <!-- REFERENCIAS PERSONALES -->
                 <mat-step>
@@ -174,19 +160,16 @@
                       <div class="col">
                           <div formArrayName="referencia" *ngFor="let t of referencia.controls; let i = index">
                               <div class="row form-group" [formGroupName]="i">
-                                  <div class="col form-group">
-                                      <div class="col-2 col-form-label">{{i+1}}</div>
-                                  </div>
                                   <div class="col-md-4">
-                                      <input formControlName='nombre' id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Enter nombre" />
+                                      <input formControlName='nombre' id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Nombres" />
                                   </div>
           
                                   <div class="col-md-3">
-                                      <input formControlName='apellido' id="{{'apellido' + i}}" class="form-control mb-4" placeholder="Enter apellido " />
+                                      <input formControlName='apellido' id="{{'apellido' + i}}" class="form-control mb-4" placeholder="Apellidos" />
                                   </div>
           
                                   <div class="col-md-3">
-                                      <input formControlName='celular' id="{{'celular' + i}}" type="number" class="form-control mb-4" placeholder="Enter celular " />
+                                      <input formControlName='celular' id="{{'celular' + i}}" type="number" class="form-control mb-4" placeholder="Celular" />
                                   </div>
                                   <div class="col-md-1">
                                       <button class="btn btn-danger" (click)='borrarReferencia(i)'><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -195,14 +178,17 @@
                                 </div>
                               </div>
                           </div>
-                          <button class="btn btn-success mt-3 mb-5 btn-block" type="button" (click)="agregarReferencia()"> + Agregar Referencia Personales</button>
+                          <button class="btn btn-success mt-3 mb-5 btn-block" type="button" (click)="agregarReferencia()" style="float: right;"> + Referencia Personales</button>
                       </div>
                   </div>
                 </mat-step>
               </mat-stepper>
-              <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+              <button type="submit" class="btn btn-primary btn-block btn-block mt-4" style="margin-left: 2rem;">Guardar Empleados </button>
             </form>
           </div>
     </header>
-    
 </main>
+
+<pre>
+    {{formEmpleado.value | json}}
+  </pre>

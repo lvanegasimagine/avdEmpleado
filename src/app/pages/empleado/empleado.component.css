@@ -1,3 +1,12 @@
 .col-form-label{
     color: #212529!important;
 }
+
+.next{
+    font-size: 15px;
+    margin-top: 2rem;
+}
+
+.separacion{
+    margin-left: 15px;
+}
