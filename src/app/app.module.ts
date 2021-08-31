@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,6 +7,10 @@ import { PruebaComponent } from './pages/prueba/prueba.component';
 import { PagesModule } from './pages/pages.module';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { SharedModule } from './shared/shared.module';
+
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from "@angular/common";
+registerLocaleData(localeEs, 'es')
 
 @NgModule({
   declarations: [
@@ -20,7 +24,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     PagesModule
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

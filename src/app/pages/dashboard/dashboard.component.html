@@ -2,6 +2,7 @@
 <div class="d-flex justify-content-between align-items-sm-center flex-column flex-sm-row mb-4">
     <div class="me-4 mb-3 mb-sm-0">
         <h1 class="mb-0">Dashboard</h1>
+        <pre>{{fecha | date}}</pre>
         <div class="small">
             <span class="fw-500 text-primary">Friday</span>
             &middot; September 20, 2021 &middot; 12:16 PM
@@ -9,8 +10,8 @@
     </div>
     <!-- Date range picker example-->
     <div class="input-group input-group-joined border-0 shadow" style="width: 16.5rem">
-        <span class="input-group-text"><i data-feather="calendar"></i></span>
-        <input class="form-control ps-0 pointer" id="litepickerRangePlugin" placeholder="Select date range..." />
+        <span class="input-group-text"><i class="far fa-calendar"></i></span>
+        <input class="form-control ps-0 pointer" id="litepickerRangePlugin" [placeholder]="fecha | date: 'EEEE, MMMM d, y'" />
     </div>
 </div>
 <!-- Illustration dashboard card example-->
@@ -25,7 +26,7 @@
                     <i class="ms-1" data-feather="arrow-right"></i>
                 </a>
             </div>
-            <div class="col d-none d-lg-block mt-xxl-n4"><img class="img-fluid px-xl-4 mt-xxl-n5" src="assets/img/illustrations/statistics.svg" /></div>
+            <div class="col d-none d-lg-block mt-xxl-n4"><img class="img-fluid px-xl-4 mt-xxl-n5" src="../../../assets/assets/img/illustrations/statistics.svg" /></div>
         </div>
     </div>
 </div>
