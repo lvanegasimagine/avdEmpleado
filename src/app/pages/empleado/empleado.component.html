@@ -14,13 +14,13 @@
           
                   <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="text" class="form-control" placeholder="Nombre Completo" formControlName="nombre" [class.is-invalid]="nombreNoValido" [class.is-valid]="nombreValido">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Nombre Completo" placeholder="Nombre Completo" formControlName="nombre" [class.is-invalid]="nombreNoValido" [class.is-valid]="nombreValido">
                           <small *ngIf="nombreNoValido" class="text-danger">Digite Nombre</small>
                       </div>
                   </div>
                   <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="text" class="form-control" placeholder="Dirección" formControlName="direccion" [class.is-invalid]="direccionNoValido" [class.is-valid]="direccionValido">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Dirección" placeholder="Dirección" formControlName="direccion" [class.is-invalid]="direccionNoValido" [class.is-valid]="direccionValido">
                           <small *ngIf="direccionNoValido" class="text-danger">Digite Dirección</small>
                       </div>
                   </div>
@@ -29,28 +29,28 @@
                           <input type="date" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Fecha de Nacimiento" placeholder="Fecha Nacimiento" formControlName="fechaNacimiento">
                       </div>
                       <div class="col">
-                          <input type="text" class="form-control" placeholder="Cedula" formControlName="cedula">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Cedula" placeholder="Cedula" formControlName="cedula">
                       </div>
                   </div>
                   <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="text" class="form-control" placeholder="Estado Civil" formControlName="estadoCivil">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Estado Civil" placeholder="Estado Civil" formControlName="estadoCivil">
                       </div>
                       <div class="col">
-                          <input type="text" class="form-control" maxlength="8" placeholder="Celular" formControlName="celular">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Celular" maxlength="8" placeholder="Celular" formControlName="celular">
                       </div>
                       <div class="col">
-                          <input type="text" class="form-control" placeholder="Inss" maxlength="8" formControlName="inss">
-                      </div>
-                  </div>
-                  <div class="form-group row mt-2">
-                      <div class="col">
-                          <input type="text" class="form-control" placeholder="Correo Electronico" maxlength="8" formControlName="email">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Inss" placeholder="Inss" maxlength="8" formControlName="inss">
                       </div>
                   </div>
                   <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="text" class="form-control" placeholder="Contacto" maxlength="8" formControlName="contacto">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Correo Electronico" placeholder="Correo Electronico" maxlength="8" formControlName="email">
+                      </div>
+                  </div>
+                  <div class="form-group row mt-2">
+                      <div class="col">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Contacto" placeholder="Contacto" maxlength="8" formControlName="contacto">
                       </div>
                   </div>
                   <button class="btn btn-info next" matStepperNext>Siguiente</button>
@@ -63,7 +63,7 @@
           
                   <div class="form-group row mt-4">
                       <div class="col">
-                          <input type="text" class="form-control" placeholder="Area" maxlength="25" formControlName="area">
+                          <input type="text" class="form-control"  placeholder="Area" maxlength="25" formControlName="area">
                       </div>
                       <div class="col">
                           <input type="text" class="form-control" placeholder="Cargo" maxlength="25" formControlName="cargo">
