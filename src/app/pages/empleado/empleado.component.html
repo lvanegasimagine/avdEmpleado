@@ -1,25 +1,208 @@
 <main>
-    <header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
-        <div class="container-xl px-4">
-            <div class="page-header-content pt-4">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-auto mt-4">
-                        <h1 class="page-header-title">
-                            <div class="page-header-icon"><i data-feather="file"></i></div>
-                            Blank Starter
-                        </h1>
-                        <div class="page-header-subtitle">Use this blank page as a starting point for creating new pages inside your project!</div>
+    <header class="page-header page-header-dark pb-10">
+        <div class="container">
+            <h1>Formularios <small> Empleados </small></h1>
+            <hr style="color: blue;">
+        </div>
+        <div class="container mt-5">
+            <form autocomplete="off" [formGroup]="formEmpleado" (ngSubmit)="guardar()">
+                <mat-stepper orientation="vertical">
+                <!-- Datos Generales -->
+                <mat-step>
+                  <ng-template matStepLabel>DATOS GENERALES</ng-template>
+                  <ng-template matStepContent>
+          
+                    <div class="form-group row">
+                      <div class="col-2 col-form-label">Nombre Completo: </div>
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="nombreNoValido" [class.is-valid]="nombreValido">
+                          <small *ngIf="nombreNoValido" class="text-danger">Digite Nombre</small>
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <div class="col-2 col-form-label">Dirección: </div>
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Dirección" formControlName="direccion" [class.is-invalid]="direccionNoValido" [class.is-valid]="direccionValido">
+                          <small *ngIf="direccionNoValido" class="text-danger">Digite Dirección</small>
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <div class="col-2 col-form-label">Fecha Nacimiento: </div>
+                      <div class="col">
+                          <input type="date" class="form-control" placeholder="Fecha Nacimiento" formControlName="fechaNacimiento">
+                      </div>
+                      <div class="col-2 col-form-label">Cedula: </div>
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Celular" formControlName="cedula">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <div class="col-2 col-form-label">Estado Civil: </div>
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Estado Civil" formControlName="estadoCivil">
+                      </div>
+                      <div class="col-2 col-form-label">Celular: </div>
+                      <div class="col">
+                          <input type="text" class="form-control" maxlength="8" placeholder="Celular" formControlName="celular">
+                      </div>
+                      <div class="col-2 col-form-label">Inss: </div>
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Inss" maxlength="8" formControlName="inss">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <div class="col-2 col-form-label">Correo Electronico: </div>
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Correo Electronico" maxlength="8" formControlName="email">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <div class="col-2 col-form-label">Contacto Emergencia: </div>
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Contacto" maxlength="8" formControlName="contacto">
+                      </div>
+                  </div>
+                  <button class="btn btn-info" matStepperNext>siguiente</button>
+                  </ng-template>
+                </mat-step>
+                <!-- Puesto -->
+                <mat-step>
+                  <ng-template matStepLabel>PUESTO</ng-template>
+                  <ng-template matStepContent>
+          
+                    <div class="form-group row">
+                      <div class="col-2 col-form-label">Area: </div>
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Area" maxlength="25" formControlName="area">
+                      </div>
+                      <div class="col-2 col-form-label">Cargo: </div>
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Cargo" maxlength="25" formControlName="cargo">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <div class="col-2 col-form-label">Nivel Academico: </div>
+                      <div class="col">
+                          <input type="text" class="form-control" placeholder="Nivel Academico" maxlength="25" formControlName="estudios">
+                      </div>
+                      <div class="col-2 col-form-label">Fecha de Inicio: </div>
+                      <div class="col">
+                          <input type="date" class="form-control" placeholder="Fecha Inicio" formControlName="fechaInicio">
+                      </div>
+                  </div>
+                    
+                    <button mat-flat-button color="accent" matStepperPrevious>Back</button>
+                    <button mat-flat-button color="primary" matStepperNext class="ml-2">Next</button>        
+                  </ng-template>
+                </mat-step>
+                <!-- HIJOS -->
+                <mat-step>
+                  <ng-template matStepLabel>HIJOS</ng-template>
+                  <hr>
+                  <div class="form-group row">
+                    <div class="col">
+                        <div formArrayName="hijos" *ngFor="let t of hijos.controls; let i = index">
+                            <div class="row form-group" [formGroupName]="i">
+                                <div class="col form-group">
+                                    <div class="col-2 col-form-label">{{i+1}}</div>
+                                </div>
+                                <div class="col-md-4">
+                                    <input formControlName='nombre' id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Enter nombre" />
+                                </div>
+          
+                                <div class="col-md-3">
+                                    <input formControlName='edad' id="{{'edad' + i}}" type="number" class="form-control mb-4" placeholder="Enter edad " />
+                                </div>
+          
+                                <div class="col-md-3">
+                                    <input formControlName='ocupacion' id="{{'ocupacion' + i}}" class="form-control mb-4" placeholder="Enter ocupacion " />
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="btn btn-danger" (click)='borrarHijos(i)'><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                </div>
+                              <div class="col-md-3">
+                              </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-success mt-3 mb-5 btn-block" type="button" (click)="agregarHijos()"> + Agregar Hijo</button>
                     </div>
-                    <div class="col-12 col-xl-auto mt-4">Optional page header content</div>
-                </div>
-            </div>
-        </div>
+                  </div>
+                  <button mat-flat-button color="accent" matStepperPrevious>Back</button>
+                  <button mat-flat-button color="primary" matStepperNext class="ml-2">Next</button>
+                </mat-step>
+                <!-- EXPERIENCIA LABORAL -->
+                <mat-step>
+                  <ng-template matStepLabel>EXPERIENCIA LABORAL</ng-template>
+          
+                  <hr>
+                  <div class="form-group row">
+                      <div class="col">
+                          <div formArrayName="laboral" *ngFor="let t of laboral.controls; let i = index">
+                              <div class="row form-group" [formGroupName]="i">
+                                  <div class="col form-group">
+                                      <div class="col-2 col-form-label">{{i+1}}</div>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <input formControlName='empresa' id="{{'empresa'+i}}" type="text" class="form-control mb-4" placeholder="Enter Empresa" />
+                                  </div>
+          
+                                  <div class="col-md-3">
+                                      <input formControlName='antiguedad' id="{{'antiguedad' + i}}" type="number" class="form-control mb-4" placeholder="Enter Antiguedad " />
+                                  </div>
+          
+                                  <div class="col-md-3">
+                                      <input formControlName='cargo' id="{{'cargo' + i}}" class="form-control mb-4" placeholder="Enter Cargo " />
+                                  </div>
+                                  <div class="col-md-1">
+                                      <button class="btn btn-danger" (click)='borrarLaboral(i)'><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                  </div>
+                                <div class="col-md-3">
+                                </div>
+                              </div>
+                          </div>
+                          <button class="btn btn-success mt-3 mb-5 btn-block" type="button" (click)="agregarLaboral()"> + Agregar Experiencia Laboral</button>
+                      </div>
+                  </div>
+                  <button mat-flat-button color="accent" matStepperPrevious>Back</button>
+                  <button mat-flat-button color="primary" matStepperNext class="ml-2">Next</button>
+                </mat-step>
+                <!-- REFERENCIAS PERSONALES -->
+                <mat-step>
+                  <ng-template matStepLabel>REFERENCIAS PERSONALES</ng-template>
+                  <hr>
+                  <div class="form-group row">
+                      <div class="col">
+                          <div formArrayName="referencia" *ngFor="let t of referencia.controls; let i = index">
+                              <div class="row form-group" [formGroupName]="i">
+                                  <div class="col form-group">
+                                      <div class="col-2 col-form-label">{{i+1}}</div>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <input formControlName='nombre' id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Enter nombre" />
+                                  </div>
+          
+                                  <div class="col-md-3">
+                                      <input formControlName='apellido' id="{{'apellido' + i}}" class="form-control mb-4" placeholder="Enter apellido " />
+                                  </div>
+          
+                                  <div class="col-md-3">
+                                      <input formControlName='celular' id="{{'celular' + i}}" type="number" class="form-control mb-4" placeholder="Enter celular " />
+                                  </div>
+                                  <div class="col-md-1">
+                                      <button class="btn btn-danger" (click)='borrarReferencia(i)'><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                  </div>
+                                <div class="col-md-3">
+                                </div>
+                              </div>
+                          </div>
+                          <button class="btn btn-success mt-3 mb-5 btn-block" type="button" (click)="agregarReferencia()"> + Agregar Referencia Personales</button>
+                      </div>
+                  </div>
+                </mat-step>
+              </mat-stepper>
+              <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+            </form>
+          </div>
     </header>
-    <!-- Main page content-->
-    <div class="container-xl px-4 mt-n10">
-        <div class="card">
-            <div class="card-header">Example Card</div>
-            <div class="card-body">This is a blank page. You can use this page as a boilerplate for creating new pages!</div>
-        </div>
-    </div>
+    
 </main>

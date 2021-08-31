@@ -8,7 +8,6 @@ import { PagesModule } from './pages/pages.module';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
 
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from "@angular/common";
@@ -25,7 +24,6 @@ registerLocaleData(localeEs, 'es')
     AppRoutingModule,
     SharedModule,
     PagesModule,
-    MaterialModule,
     BrowserAnimationsModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'es'}],
