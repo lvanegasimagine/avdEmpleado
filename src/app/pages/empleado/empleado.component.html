@@ -161,11 +161,11 @@
                           <div formArrayName="referencia" *ngFor="let t of referencia.controls; let i = index">
                               <div class="row form-group" [formGroupName]="i">
                                   <div class="col-md-4">
-                                      <input formControlName='nombre' id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Nombres" />
+                                      <input formControlName='nombre' id="{{'nombre'+i}}" type="text" class="form-control mb-4" placeholder="Nombre" />
                                   </div>
           
                                   <div class="col-md-3">
-                                      <input formControlName='apellido' id="{{'apellido' + i}}" class="form-control mb-4" placeholder="Apellidos" />
+                                      <input formControlName='apellido' id="{{'apellido' + i}}" class="form-control mb-4" placeholder="Apellido" />
                                   </div>
           
                                   <div class="col-md-3">
@@ -183,7 +183,7 @@
                   </div>
                 </mat-step>
               </mat-stepper>
-              <button type="submit" class="btn btn-primary btn-block btn-block mt-4" style="margin-left: 2rem;">Guardar Empleados </button>
+              <button type="submit" class="btn btn-primary btn-block btn-block mt-4" style="margin-left: 2rem; letter-spacing: 2px;">Guardar Empleados </button>
             </form>
           </div>
     </header>
