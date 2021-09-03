@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { EmpleadoService } from '../../service/empleado.service';
+import { CategoriaArea } from '../interfaces/categoriaArea.interface';
 
 @Component({
   selector: 'app-empleado',
@@ -11,7 +12,7 @@ export class EmpleadoComponent implements OnInit {
 
   formEmpleado: FormGroup;
   empleadoList: any = [];
-  categoriaArea: any = [];
+  categoriaArea: CategoriaArea[] = [];
   public nivelAcademico: string[] = ['Bachiller','Universitario','Egresado','Posgrado','Doctorado'];
 
   constructor(private fb: FormBuilder, private empleadoService: EmpleadoService) { }
@@ -136,9 +137,8 @@ export class EmpleadoComponent implements OnInit {
   }
   
   getCategoriaArea(){
-    this.empleadoService.getCategoriaAreaList().then((resp: any) => {
-      this.categoriaArea = resp.data
-      console.log(resp.data);
-    });
+    this.empleadoService.getCategoriaAreaList().subscribe((resp: CategoriaArea[]) => {
+        this.categoriaArea = resp['data'];
+    })
   }
 }
