@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { EmpleadoService } from '../../service/empleado.service';
 
 @Component({
   selector: 'app-empleado',
@@ -9,11 +10,16 @@ import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class EmpleadoComponent implements OnInit {
 
   formEmpleado: FormGroup;
+  empleadoList: any = [];
+  categoriaArea: any = [];
+  public nivelAcademico: string[] = ['Bachiller','Universitario','Egresado','Posgrado','Doctorado'];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private empleadoService: EmpleadoService) { }
 
   ngOnInit(): void {
     this.initFormulario();
+    this.getEmpleados();
+    this.getCategoriaArea();
   }
 
   createLaboral():FormGroup{
@@ -123,4 +129,16 @@ export class EmpleadoComponent implements OnInit {
     return this.formEmpleado.get('direccion').invalid && this.formEmpleado.get('direccion').touched
   }
 
+  getEmpleados(){
+    this.empleadoService.getEmpleadoList().then((resp: any) => {
+      this.empleadoList = resp.data
+    })
+  }
+  
+  getCategoriaArea(){
+    this.empleadoService.getCategoriaAreaList().then((resp: any) => {
+      this.categoriaArea = resp.data
+      console.log(resp.data);
+    });
+  }
 }

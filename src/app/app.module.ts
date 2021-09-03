@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from "@angular/common";
+import { HttpClientModule } from '@angular/common/http';
 registerLocaleData(localeEs, 'es')
 
 @NgModule({
@@ -24,7 +25,8 @@ registerLocaleData(localeEs, 'es')
     AppRoutingModule,
     SharedModule,
     PagesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]

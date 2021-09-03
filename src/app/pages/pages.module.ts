@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from './material.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MaterialModule } from './material.module';
     ReactiveFormsModule,
     SharedModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   exports: [
     EmpleadoComponent,

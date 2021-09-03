@@ -62,7 +62,9 @@
                   <ng-template matStepContent>
                     <div class="form-group row mt-4">
                       <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Area"  placeholder="Area" maxlength="25" formControlName="area">
+                        <select class="form-select" formControlName="area" aria-label="Area Laboral" data-bs-toggle="tooltip" data-bs-placement="top" title="Area Laboral">
+                            <option *ngFor="let item of categoriaArea" [value]="item.id">{{item.nombre}}</option>
+                        </select>
                       </div>
                       <div class="col">
                           <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Cargo" placeholder="Cargo" maxlength="25" formControlName="cargo">
@@ -70,7 +72,10 @@
                     </div>
                     <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Nivel Academico" placeholder="Nivel Academico" maxlength="25" formControlName="estudios">
+                        <select class="form-select" formControlName="estudios" aria-label="Nivel Academico" data-bs-toggle="tooltip" data-bs-placement="top" title="Nivel Academico">
+                            <option *ngFor="let item of nivelAcademico" [value]="item">{{item}}</option>
+                        </select>
+                          <!-- <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Nivel Academico" placeholder="Nivel Academico" maxlength="25" formControlName="estudios"> -->
                       </div>
                       <div class="col">
                           <input type="date" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Fecha de Inicio" placeholder="Fecha Inicio" formControlName="fechaInicio">
@@ -187,7 +192,13 @@
           </div>
     </header>
 </main>
-<!-- 
+
 <pre>
     {{formEmpleado.value | json}}
-  </pre> -->
+</pre>
+
+  <div class="container">
+      <div *ngFor="let item of empleadoList">
+            <h1>{{item.nombre}}</h1>
+      </div>
+  </div>
