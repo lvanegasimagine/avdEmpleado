@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {environment} from '../../environments/environment';
 import { CategoriaArea } from '../pages/interfaces/categoriaArea.interface';
+import { Empleado } from '../pages/interfaces/empleado.interface';
 
 
 @Injectable({
@@ -15,8 +16,8 @@ export class EmpleadoService {
 
   constructor(private http: HttpClient) { }
 
-  getEmpleadoList(){
-    return this.http.get(this.URL_EMPLEADO).toPromise();
+  getEmpleadoList(): Observable<Empleado[]>{
+    return this.http.get<Empleado[]>(this.URL_EMPLEADO);
   }
 
   postEmpleado(data: any){

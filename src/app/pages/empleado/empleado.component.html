@@ -14,43 +14,50 @@
           
                   <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Nombre Completo" placeholder="Nombre Completo" formControlName="nombre" [class.is-invalid]="nombreNoValido" [class.is-valid]="nombreValido">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Nombre Completo" maxlength="100" placeholder="Nombre Completo" formControlName="nombre" [class.is-invalid]="nombreNoValido" [class.is-valid]="nombreValido">
                           <small *ngIf="nombreNoValido" class="text-danger">Digite Nombre</small>
                       </div>
                   </div>
                   <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Dirección" placeholder="Dirección" formControlName="direccion" [class.is-invalid]="direccionNoValido" [class.is-valid]="direccionValido">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Dirección" maxlength="250" placeholder="Dirección" formControlName="direccion" [class.is-invalid]="direccionNoValido" [class.is-valid]="direccionValido">
                           <small *ngIf="direccionNoValido" class="text-danger">Digite Dirección</small>
                       </div>
                   </div>
                   <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="date" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Fecha de Nacimiento" placeholder="Fecha Nacimiento" formControlName="fechaNacimiento">
+                          <input type="date" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Fecha de Nacimiento" placeholder="Fecha Nacimiento" formControlName="fechaNacimiento" [class.is-invalid]="fechaNacimientoNoValido" [class.is-valid]="fechaNacimientoValido">
+                          <small *ngIf="fechaNacimientoNoValido" class="text-danger">Seleccione Fecha de Nacimiento</small>
                       </div>
                       <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Cedula" placeholder="Cedula" formControlName="cedula">
-                      </div>
-                  </div>
-                  <div class="form-group row mt-2">
-                      <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Estado Civil" placeholder="Estado Civil" formControlName="estadoCivil">
-                      </div>
-                      <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Celular" maxlength="8" placeholder="Celular" formControlName="celular">
-                      </div>
-                      <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Inss" placeholder="Inss" maxlength="8" formControlName="inss">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Cedula" maxlength="16" placeholder="Cedula" [class.is-valid]="cedulaValido" [class.is-invalid]="cedulaNoValido"  formControlName="cedula">
+                          <small *ngIf="cedulaNoValido" class="text-danger">Digite su Cedula</small>
                       </div>
                   </div>
                   <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Correo Electronico" placeholder="Correo Electronico" maxlength="8" formControlName="email">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Estado Civil" placeholder="Estado Civil" formControlName="estadoCivil" [class.is-valid]="estadoCivilValido" [class.is-invalid]="estadoCivilNoValido">
+                          <small *ngIf="estadoCivilNoValido" class="text-danger">Seleccione su estado civil</small>
+                      </div>
+                      <div class="col">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Celular" maxlength="8" placeholder="Celular" formControlName="celular" [class.is-valid]="celularValido" [class.is-invalid]="celularNoValido">
+                          <small *ngIf="celularNoValido" class="text-danger">Digite su Celular</small>
+                      </div>
+                      <div class="col">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Inss" placeholder="Inss" maxlength="8" formControlName="inss" [class.is-valid]="inssValido" [class.is-invalid]="inssNoValido">
+                          <small *ngIf="inssNoValido" class="text-danger">Digite su Inss</small>
                       </div>
                   </div>
                   <div class="form-group row mt-2">
                       <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Contacto" placeholder="Contacto" maxlength="8" formControlName="contacto">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Correo Electronico" placeholder="Correo Electronico" maxlength="50" formControlName="email" [class.is-valid]="emailValido" [class.is-invalid]="emailNoValido">
+                          <small *ngIf="emailNoValido" class="text-danger">Digite su email</small>
+                      </div>
+                  </div>
+                  <div class="form-group row mt-2">
+                      <div class="col">
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Contacto" placeholder="Contacto" maxlength="100" formControlName="contacto" [class.is-valid]="contactoValido" [class.is-invalid]="contactoNoValido">
+                          <small *ngIf="contactoNoValido" class="text-danger">Digite su contacto de emergencia</small>
                       </div>
                   </div>
                   <button type class="btn btn-info next" matStepperNext>Siguiente</button>
@@ -75,7 +82,6 @@
                         <select class="form-select" formControlName="estudios" aria-label="Nivel Academico" data-bs-toggle="tooltip" data-bs-placement="top" title="Nivel Academico">
                             <option *ngFor="let item of nivelAcademico" [value]="item">{{item}}</option>
                         </select>
-                          <!-- <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Nivel Academico" placeholder="Nivel Academico" maxlength="25" formControlName="estudios"> -->
                       </div>
                       <div class="col">
                           <input type="date" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Fecha de Inicio" placeholder="Fecha Inicio" formControlName="fechaInicio">
@@ -83,7 +89,7 @@
                     </div>
                     <div class="mt-4">
                           <button class="mr-2" mat-flat-button color="accent" matStepperPrevious>Atras</button>
-                          <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>        
+                          <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>
                     </div>
                   </ng-template>
                 </mat-step>
@@ -118,7 +124,7 @@
                   </div>
                   <div class="mt-4">
                     <button class="mr-2" mat-flat-button color="accent" matStepperPrevious>Atras</button>
-                    <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>        
+                    <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>
                   </div>
                 </mat-step>
                 <!-- EXPERIENCIA LABORAL -->
@@ -153,7 +159,7 @@
                   </div>
                   <div class="mt-4">
                     <button class="mr-2" mat-flat-button color="accent" matStepperPrevious>Atras</button>
-                    <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>        
+                    <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>
                   </div>
                 </mat-step>
                 <!-- REFERENCIAS PERSONALES -->

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { EmpleadoService } from '../../service/empleado.service';
 import { CategoriaArea } from '../interfaces/categoriaArea.interface';
+import { Empleado } from '../interfaces/empleado.interface';
 
 @Component({
   selector: 'app-empleado',
@@ -11,7 +12,7 @@ import { CategoriaArea } from '../interfaces/categoriaArea.interface';
 export class EmpleadoComponent implements OnInit {
 
   formEmpleado: FormGroup;
-  empleadoList: any = [];
+  empleadoList: Empleado[] = [];
   categoriaArea: CategoriaArea[] = [];
   public nivelAcademico: string[] = ['Bachiller','Universitario','Egresado','Posgrado','Doctorado'];
 
@@ -50,23 +51,29 @@ export class EmpleadoComponent implements OnInit {
 
   private initFormulario(){
     this.formEmpleado = this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]],
-      direccion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]],
-      fechaNacimiento: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]],
-      inss: ['', [Validators.minLength(5), Validators.maxLength(8)]],
+      nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(100)]],
+      direccion: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(250)]],
+      fechaNacimiento: ['', [Validators.required]],
+      inss: ['', [Validators.minLength(8), Validators.maxLength(8)]],
       estadoCivil: ['', [Validators.required]],
       celular: ['', [Validators.required, Validators.maxLength(8)]],
       cedula: ['', [Validators.required, Validators.maxLength(16)]],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.pattern(/^(?=[a-zA-Z0-9@._%+-]{6,254}$)[a-zA-Z0-9._%+-]{1,64}@(?:[a-zA-Z0-9-]{1,63}\.){1,8}[a-zA-Z]{2,63}$/), Validators.maxLength(50)]],
       contacto: ['', [Validators.required, Validators.maxLength(100)]],
       area: ['', [Validators.required, Validators.maxLength(100)]],
-      cargo: ['', [Validators.required, Validators.maxLength(100)]],
+      cargo: ['', [Validators.required, Validators.maxLength(25)]],
       estudios: ['', [Validators.required, Validators.maxLength(100)]],
       fechaInicio: ['', [Validators.required, Validators.maxLength(100)]],
       laboral: this.fb.array([this.createLaboral()],Validators.required),
       referencia: this.fb.array([this.createReferencia()], Validators.required),
       hijos: this.fb.array([this.createHijos()])
     });
+  }
+
+  getEmpleados(){
+    this.empleadoService.getEmpleadoList().subscribe((resp: any) => {
+      this.empleadoList = resp.data
+    })
   }
 
   guardar(){
@@ -135,12 +142,62 @@ export class EmpleadoComponent implements OnInit {
     return this.formEmpleado.get('direccion').invalid && this.formEmpleado.get('direccion').touched
   }
 
-  getEmpleados(){
-    this.empleadoService.getEmpleadoList().then((resp: any) => {
-      this.empleadoList = resp.data
-    })
+  get fechaNacimientoValido(){
+    return this.formEmpleado.get('fechaNacimiento').valid;
   }
-  
+
+  get fechaNacimientoNoValido(){
+    return this.formEmpleado.get('fechaNacimiento').invalid && this.formEmpleado.get('fechaNacimiento').touched;
+  }
+
+  get cedulaValido(){
+    return this.formEmpleado.get('cedula').valid;
+  }
+
+  get cedulaNoValido(){
+    return this.formEmpleado.get('cedula').invalid && this.formEmpleado.get('cedula').touched;
+  }
+
+  get estadoCivilValido(){
+    return this.formEmpleado.get('estadoCivil').valid;
+  }
+
+  get estadoCivilNoValido(){
+    return this.formEmpleado.get('estadoCivil').invalid && this.formEmpleado.get('estadoCivil').touched;
+  }
+
+  get celularValido(){
+    return this.formEmpleado.get('celular').valid;
+  }
+
+  get celularNoValido(){
+    return this.formEmpleado.get('celular').invalid && this.formEmpleado.get('celular').touched;
+  }
+
+  get inssValido(){
+    return this.formEmpleado.get('inss').valid;
+  }
+
+  get inssNoValido(){
+    return this.formEmpleado.get('inss').invalid && this.formEmpleado.get('inss').touched;
+  }
+
+  get emailValido(){
+    return this.formEmpleado.get('email').valid;
+  }
+
+  get emailNoValido(){
+    return this.formEmpleado.get('email').invalid && this.formEmpleado.get('email').touched;
+  }
+
+  get contactoValido(){
+    return this.formEmpleado.get('contacto').valid;
+  }
+
+  get contactoNoValido(){
+    return this.formEmpleado.get('contacto').invalid && this.formEmpleado.get('contacto').touched;
+  }
+
   getCategoriaArea(){
     this.empleadoService.getCategoriaAreaList().subscribe((resp: CategoriaArea[]) => {
         this.categoriaArea = resp['data'];
