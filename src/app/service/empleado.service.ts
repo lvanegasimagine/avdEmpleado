@@ -19,6 +19,10 @@ export class EmpleadoService {
     return this.http.get(this.URL_EMPLEADO).toPromise();
   }
 
+  postEmpleado(data: any){
+    return this.http.post(this.URL_EMPLEADO, data).toPromise();
+  }
+
   getCategoriaAreaList(): Observable<CategoriaArea[]>{
     return this.http.get<CategoriaArea[]>(this.URL_AREA);
   }

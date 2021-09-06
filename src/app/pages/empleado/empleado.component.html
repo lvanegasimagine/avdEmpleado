@@ -5,7 +5,7 @@
             <hr style="color: blue;">
         </div>
         <div class="container mt-5">
-            <form autocomplete="off" [formGroup]="formEmpleado" (ngSubmit)="guardar()">
+            <form autocomplete="off" [formGroup]="formEmpleado">
                 <mat-stepper orientation="vertical">
                 <!-- Datos Generales -->
                 <mat-step>
@@ -53,7 +53,7 @@
                           <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Contacto" placeholder="Contacto" maxlength="8" formControlName="contacto">
                       </div>
                   </div>
-                  <button class="btn btn-info next" matStepperNext>Siguiente</button>
+                  <button type class="btn btn-info next" matStepperNext>Siguiente</button>
                   </ng-template>
                 </mat-step>
                 <!-- Puesto -->
@@ -187,7 +187,8 @@
                   </div>
                 </mat-step>
               </mat-stepper>
-              <button type="submit" class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;">Guardar Empleados </button>
+              <button type="submit" class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;" (click)="guardar()"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+              <button class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;" routerLink="/dashboard/listado"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp; Regresar</button>
             </form>
           </div>
     </header>

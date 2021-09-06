@@ -71,6 +71,11 @@ export class EmpleadoComponent implements OnInit {
 
   guardar(){
     console.log(this.formEmpleado.value);
+    this.empleadoService.postEmpleado(this.formEmpleado.value).then(resp => {
+      console.log('Empleado Guardado');
+    }).catch((error: any) => {
+      
+    })
   }
   
   // TODO: fb Laboral
