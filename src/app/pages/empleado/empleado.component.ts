@@ -174,14 +174,6 @@ export class EmpleadoComponent implements OnInit {
     return this.formEmpleado.get('celular').invalid && this.formEmpleado.get('celular').touched;
   }
 
-  get inssValido(){
-    return this.formEmpleado.get('inss').valid;
-  }
-
-  get inssNoValido(){
-    return this.formEmpleado.get('inss').invalid && this.formEmpleado.get('inss').touched;
-  }
-
   get emailValido(){
     return this.formEmpleado.get('email').valid;
   }
@@ -196,6 +188,14 @@ export class EmpleadoComponent implements OnInit {
 
   get contactoNoValido(){
     return this.formEmpleado.get('contacto').invalid && this.formEmpleado.get('contacto').touched;
+  }
+
+  get cargoValido(){
+    return this.formEmpleado.get('cargo').valid;
+  }
+
+  get cargoNoValido(){
+    return this.formEmpleado.get('cargo').invalid && this.formEmpleado.get('cargo').touched;
   }
 
   getCategoriaArea(){

@@ -44,8 +44,7 @@
                           <small *ngIf="celularNoValido" class="text-danger">Digite su Celular</small>
                       </div>
                       <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Inss" placeholder="Inss" maxlength="8" formControlName="inss" [class.is-valid]="inssValido" [class.is-invalid]="inssNoValido">
-                          <small *ngIf="inssNoValido" class="text-danger">Digite su Inss</small>
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Inss" placeholder="Inss" maxlength="8" formControlName="inss">
                       </div>
                   </div>
                   <div class="form-group row mt-2">
@@ -69,21 +68,26 @@
                   <ng-template matStepContent>
                     <div class="form-group row mt-4">
                       <div class="col">
+                        <small style="color: black;">Area Laboral:</small>
                         <select class="form-select" formControlName="area" aria-label="Area Laboral" data-bs-toggle="tooltip" data-bs-placement="top" title="Area Laboral">
                             <option *ngFor="let item of categoriaArea" [value]="item.id">{{item.nombre}}</option>
                         </select>
                       </div>
                       <div class="col">
-                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Cargo" placeholder="Cargo" maxlength="25" formControlName="cargo">
+                          <small style="color: black;">Cargo:</small>
+                          <input type="text" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Cargo" placeholder="Cargo" maxlength="25" formControlName="cargo" [class.is-valid]="cargoValido" [class.is-invalid]="cargoNoValido">
+                          <small *ngIf="cargoNoValido" class="text-danger">Digite su cargo</small>
                       </div>
                     </div>
                     <div class="form-group row mt-2">
                       <div class="col">
+                        <small style="color: black;">Nivel Academico:</small>
                         <select class="form-select" formControlName="estudios" aria-label="Nivel Academico" data-bs-toggle="tooltip" data-bs-placement="top" title="Nivel Academico">
                             <option *ngFor="let item of nivelAcademico" [value]="item">{{item}}</option>
                         </select>
                       </div>
                       <div class="col">
+                          <small style="color: black;">Fecha Inicio:</small>
                           <input type="date" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Fecha de Inicio" placeholder="Fecha Inicio" formControlName="fechaInicio">
                       </div>
                     </div>
@@ -199,13 +203,3 @@
           </div>
     </header>
 </main>
-
-<pre>
-    {{formEmpleado.value | json}}
-</pre>
-
-  <div class="container">
-      <div *ngFor="let item of empleadoList">
-            <h1>{{item.nombre}}</h1>
-      </div>
-  </div>
