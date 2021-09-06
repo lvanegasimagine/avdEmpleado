@@ -1,7 +1,8 @@
-import { Component, AfterViewInit,ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
+import { EmpleadoService } from '../../../service/empleado.service';
+import { Empleado } from '../../interfaces/empleado.interface';
 
 export interface PeriodicElement {
   name: string;
@@ -27,17 +28,21 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './listado-empleado.component.html',
   styleUrls: ['./listado-empleado.component.css']
 })
-export class ListadoEmpleadoComponent implements AfterViewInit {
+export class ListadoEmpleadoComponent implements AfterViewInit, OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  empleadoLista: Empleado[] = [];
+  displayedColumns: string[] = ['nombre','inss','celular','cargo','area','tools'];
+  dataSource = new MatTableDataSource(this.empleadoLista);
+  
+  constructor(private empleadoService: EmpleadoService) {}
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
   
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+  }
+  ngOnInit(): void {
+    this.empleadoList()  
   }
 
   applyFilter(event: Event) {
@@ -45,4 +50,10 @@ export class ListadoEmpleadoComponent implements AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  empleadoList(){
+    this.empleadoService.getEmpleadoList().subscribe((resp:Empleado[]) => {
+        this.empleadoLista = resp['data'];
+        console.log(this.empleadoLista);
+    })
+  }
 }
