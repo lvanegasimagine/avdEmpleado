@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { EmpleadoService } from '../../service/empleado.service';
 import { CategoriaArea } from '../interfaces/categoriaArea.interface';
 import { Empleado } from '../interfaces/empleado.interface';
@@ -16,7 +17,7 @@ export class EmpleadoComponent implements OnInit {
   categoriaArea: CategoriaArea[] = [];
   public nivelAcademico: string[] = ['Bachiller','Universitario','Egresado','Posgrado','Doctorado'];
 
-  constructor(private fb: FormBuilder, private empleadoService: EmpleadoService) { }
+  constructor(private fb: FormBuilder, private empleadoService: EmpleadoService, private router: Router) { }
 
   ngOnInit(): void {
     this.initFormulario();
@@ -80,6 +81,7 @@ export class EmpleadoComponent implements OnInit {
     console.log(this.formEmpleado.value);
     this.empleadoService.postEmpleado(this.formEmpleado.value).then(resp => {
       console.log('Empleado Guardado');
+      this.router.navigateByUrl('/');
     }).catch((error: any) => {
       
     })

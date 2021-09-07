@@ -5,3 +5,10 @@ table {
 th.mat-sort-header-sorted {
   color: black;
 }
+
+.mat-form-field{
+  width: 380px!important;
+}
+.btn{
+  padding: 10px 12px;
+}

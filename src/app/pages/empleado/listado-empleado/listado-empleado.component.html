@@ -5,7 +5,7 @@
 <button class="btn btn-success mt-3 mb-5 btn-block" style="float: right;" routerLink="/dashboard/empleado"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Nuevo Empleado</button>
 <mat-form-field appearance="standard">
     <mat-label><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Buscar</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    <input matInput (keyup)="applyFilter($event)" #input>
   </mat-form-field>
   
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -38,7 +38,10 @@
 
     <ng-container matColumnDef="tools">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> tools </th>
-      <td mat-cell *matCellDef="let element"><button class="btn btn-danger" style="height: 10%;"><i class="fa fa-venus" aria-hidden="true"></i></button>&nbsp; <button><i class="fa fa-venus" aria-hidden="true"></i></button> </td>
+      <td mat-cell *matCellDef="let element">
+        <button class="btn btn-primary" style="height: 10%;"><i class="fas fa-pen"></i></button>&nbsp; 
+        <button class="btn btn-success"><i class="far fa-eye"></i></button>&nbsp; 
+        <button class="btn btn-danger" style="height: 10%;"><i class="fa fa-trash" aria-hidden="true"></i></button>&nbsp; 
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
