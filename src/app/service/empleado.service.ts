@@ -24,7 +24,13 @@ export class EmpleadoService {
     return this.http.post(this.URL_EMPLEADO, data).toPromise();
   }
 
+  deleteEmpleado(id: string){
+    return this.http.delete(`this.URL_EMPLEADO/${id}`);
+  }
+
   getCategoriaAreaList(): Observable<CategoriaArea[]>{
     return this.http.get<CategoriaArea[]>(this.URL_AREA);
   }
+
+
 }
