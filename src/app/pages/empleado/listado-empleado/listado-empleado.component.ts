@@ -35,6 +35,13 @@ export class ListadoEmpleadoComponent implements AfterViewInit, OnInit {
     this.empleadoService.getEmpleadoList().subscribe(resp => {
       this.dataSource.data = resp['data'];
     })
+  };
+
+  deleteEmpleado(id: string){
+     this.empleadoService.deleteEmpleado(id).subscribe(resp => {
+         console.log('Eliminado');
+         this.listarEmpleado();
+     });
   }
 
   applyFilter(event: Event) {

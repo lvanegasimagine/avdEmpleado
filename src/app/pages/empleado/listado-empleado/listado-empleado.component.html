@@ -41,7 +41,7 @@
       <td mat-cell *matCellDef="let element">
         <button class="btn btn-primary" style="height: 10%;"><i class="fas fa-pen"></i></button>&nbsp; 
         <button class="btn btn-success"><i class="far fa-eye"></i></button>&nbsp; 
-        <button class="btn btn-danger" style="height: 10%;"><i class="fa fa-trash" aria-hidden="true"></i></button>&nbsp; 
+        <button class="btn btn-danger" style="height: 10%;" (click)="deleteEmpleado(element.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>&nbsp; 
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

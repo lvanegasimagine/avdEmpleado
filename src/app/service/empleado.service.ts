@@ -25,7 +25,7 @@ export class EmpleadoService {
   }
 
   deleteEmpleado(id: string){
-    return this.http.delete(`this.URL_EMPLEADO/${id}`);
+    return this.http.delete(`${this.URL_EMPLEADO}/${id}`);
   }
 
   getCategoriaAreaList(): Observable<CategoriaArea[]>{
