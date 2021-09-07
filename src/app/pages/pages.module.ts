@@ -9,7 +9,6 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { EmpleadoService } from '../service/empleado.service';
 import { DatatablesComponent } from './datatables/datatables.component';
 import { ListadoEmpleadoComponent } from './empleado/listado-empleado/listado-empleado.component';
 
