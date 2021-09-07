@@ -20,6 +20,10 @@ export class EmpleadoService {
     return this.http.get<Empleado[]>(this.URL_EMPLEADO);
   }
 
+  getEmpleadoById(id: string): Observable<Empleado>{
+    return this.http.get<Empleado>(`${this.URL_EMPLEADO}/${id}`);
+  }
+
   postEmpleado(data: any){
     return this.http.post(this.URL_EMPLEADO, data).toPromise();
   }
