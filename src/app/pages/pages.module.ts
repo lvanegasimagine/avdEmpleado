@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ListadoEmpleadoComponent } from './empleado/listado-empleado/listado-empleado.component';
+import { ReporteEmpleadoComponent } from './empleado/reporte-empleado/reporte-empleado.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ListadoEmpleadoComponent } from './empleado/listado-empleado/listado-em
     DashboardComponent,
     PagesComponent,
     ListadoEmpleadoComponent,
+    ReporteEmpleadoComponent,
   ],
   imports: [
     CommonModule,
