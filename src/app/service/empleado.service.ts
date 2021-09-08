@@ -28,6 +28,10 @@ export class EmpleadoService {
     return this.http.post(this.URL_EMPLEADO, data).toPromise();
   }
 
+  updateEmpleado(data: any, id: string){
+    return this.http.put(`${this.URL_EMPLEADO}/${id}`, data);
+  }
+
   deleteEmpleado(id: string){
     return this.http.delete(`${this.URL_EMPLEADO}/${id}`);
   }
