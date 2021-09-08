@@ -9,7 +9,7 @@ import { PruebaComponent } from './prueba/prueba.component';
 const childRoutes: Routes = [
   { path: 'listado', component: ListadoEmpleadoComponent },
   { path: 'empleado', component: EmpleadoComponent },
-  { path: 'actualizar/:id', component: ReporteEmpleadoComponent},
+  { path: 'reporte/:id', component: ReporteEmpleadoComponent},
   { path: 'main', component: DashboardComponent },
 ]
 @NgModule({
