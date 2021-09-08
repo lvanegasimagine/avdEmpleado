@@ -23,12 +23,31 @@ export class EmpleadoComponent implements OnInit {
 
   ngOnInit(): void {
     this.initFormulario();
+    this.getCategoriaArea();
     this.id = this.activatedRoute.snapshot.params.id;
+    
     if(this.id !== undefined){
       this.esEditable=true;
+      this.empleadoService.getEmpleadoById(this.id).subscribe(resp => {
+        const empleadoUpdate = resp['data'] as Empleado;
+
+        this.formEmpleado.patchValue({
+          nombre: empleadoUpdate.nombre,
+          direccion: empleadoUpdate.direccion,
+          fechaNacimiento: empleadoUpdate.fechaNacimiento,
+          inss: empleadoUpdate.inss,
+          estadoCivil: empleadoUpdate.estadoCivil,
+          celular: empleadoUpdate.celular,
+          cedula: empleadoUpdate.cedula,
+          email: empleadoUpdate.email,
+          contacto: empleadoUpdate.contacto,
+          area: empleadoUpdate.area,
+          cargo: empleadoUpdate.cargo,
+          estudios: empleadoUpdate.estudios,
+          fechaInicio: empleadoUpdate.fechaInicio
+        })
+      })
     }
-    // this.getEmpleados();
-    this.getCategoriaArea();
   }
 
   createLaboral():FormGroup{
@@ -71,9 +90,9 @@ export class EmpleadoComponent implements OnInit {
       cargo: ['', [Validators.required, Validators.maxLength(25)]],
       estudios: ['', [Validators.required, Validators.maxLength(100)]],
       fechaInicio: ['', [Validators.required, Validators.maxLength(100)]],
-      laboral: this.fb.array([this.createLaboral()],Validators.required),
-      referencia: this.fb.array([this.createReferencia()], Validators.required),
-      hijos: this.fb.array([this.createHijos()])
+      // laboral: this.fb.array([this.createLaboral()],Validators.required),
+      // referencia: this.fb.array([this.createReferencia()], Validators.required),
+      // hijos: this.fb.array([this.createHijos()])
     });
   }
 
@@ -83,7 +102,7 @@ export class EmpleadoComponent implements OnInit {
     })
   }
 
-  guardar(){
+  guardarEmpleado(){
     console.log(this.formEmpleado.value);
     this.empleadoService.postEmpleado(this.formEmpleado.value).then(resp => {
       console.log('Empleado Guardado');
@@ -91,6 +110,10 @@ export class EmpleadoComponent implements OnInit {
     }).catch((error: any) => {
       
     })
+  }
+
+  actualizarEmpleado(){
+    console.log(this.formEmpleado.value);
   }
   
   // TODO: fb Laboral

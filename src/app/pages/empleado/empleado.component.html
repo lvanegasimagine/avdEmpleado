@@ -99,7 +99,7 @@
                   </ng-template>
                 </mat-step>
                 <!-- HIJOS -->
-                <mat-step>
+                <!-- <mat-step>
                   <ng-template matStepLabel>HIJOS</ng-template>
                   <hr>
                   <div class="form-group row">
@@ -131,9 +131,9 @@
                     <button class="mr-2" mat-flat-button color="accent" matStepperPrevious>Atras</button>
                     <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>
                   </div>
-                </mat-step>
+                </mat-step> -->
                 <!-- EXPERIENCIA LABORAL -->
-                <mat-step>
+                <!-- <mat-step>
                   <ng-template matStepLabel>EXPERIENCIA LABORAL</ng-template>
           
                   <hr>
@@ -166,9 +166,9 @@
                     <button class="mr-2" mat-flat-button color="accent" matStepperPrevious>Atras</button>
                     <button class="separacion" mat-flat-button color="primary" matStepperNext>Siguiente</button>
                   </div>
-                </mat-step>
+                </mat-step> -->
                 <!-- REFERENCIAS PERSONALES -->
-                <mat-step>
+                <!-- <mat-step>
                   <ng-template matStepLabel>REFERENCIAS PERSONALES</ng-template>
                   <hr>
                   <div class="form-group row">
@@ -196,10 +196,10 @@
                           <button class="btn btn-success mt-3 mb-5 btn-block" type="button" (click)="agregarReferencia()" style="float: right;"> <i class="fas fa-plus"></i>&nbsp;Agregar Referencia</button>
                       </div>
                   </div>
-                </mat-step>
+                </mat-step> -->
               </mat-stepper>
-              <button *ngIf="!esEditable" type="submit" class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;" (click)="guardar()"><i class="fas fa-save"></i>&nbsp;Guardar</button>
-              <button *ngIf="esEditable" type="submit" class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;" (click)="guardar()"><i class="fab fa-telegram-plane"></i>&nbsp;Actualizar</button>
+              <button *ngIf="!esEditable" type="submit" class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;" (click)="guardarEmpleado()"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+              <button *ngIf="esEditable" type="submit" class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;" (click)="actualizarEmpleado()"><i class="fab fa-telegram-plane"></i>&nbsp;Actualizar</button>
               <button class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;" routerLink="/dashboard/listado"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp; Regresar</button>
             </form>
           </div>

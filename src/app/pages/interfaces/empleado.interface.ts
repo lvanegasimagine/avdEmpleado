@@ -8,6 +8,7 @@ export interface Empleado {
   celular: string;
   cedula: string;
   email: string;
+  cargo: string;
   contacto: string;
   area: Area;
   estudios: string;
