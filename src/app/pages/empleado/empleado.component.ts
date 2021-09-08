@@ -45,9 +45,51 @@ export class EmpleadoComponent implements OnInit {
           cargo: empleadoUpdate.cargo,
           estudios: empleadoUpdate.estudios,
           fechaInicio: empleadoUpdate.fechaInicio
-        })
+        });// Finaliza el patchvalue
+        this.formEmpleado.setControl('hijos', this.setGetHijos(empleadoUpdate.hijos));
+        this.formEmpleado.setControl('laboral', this.setGetLaboral(empleadoUpdate.laboral));
+        this.formEmpleado.setControl('referencia', this.setGetReferencia(empleadoUpdate.referencias));
       })
     }
+  }// Fin ngOnInit
+
+  setGetHijos(hijos: any): FormArray{
+    const formArray = new FormArray([]);
+
+    hijos.forEach(s => {
+      formArray.push(this.fb.group({
+        nombre: s.nombre,
+        edad: s.edad,
+        ocupacion: s.ocupacion
+      }));
+    });
+    return formArray;
+  }
+
+  setGetLaboral(laboral:any): FormArray{
+
+    const formArray = new FormArray([]);
+    laboral.forEach(s => {
+      formArray.push(this.fb.group({
+        empresa: s.empresa,
+        antiguedad: s.antiguedad,
+        cargo: s.cargo
+      }))
+    });
+    return formArray
+  }
+
+  setGetReferencia(referencia: any): FormArray{
+
+    const formArray = new FormArray([]);
+    referencia.forEach(s => {
+      formArray.push(this.fb.group({
+        nombre: s.nombre,
+        apellido: s.apellido,
+        celular: s.celular
+      }));
+    });
+    return formArray
   }
 
   createLaboral():FormGroup{
@@ -90,9 +132,9 @@ export class EmpleadoComponent implements OnInit {
       cargo: ['', [Validators.required, Validators.maxLength(25)]],
       estudios: ['', [Validators.required, Validators.maxLength(100)]],
       fechaInicio: ['', [Validators.required, Validators.maxLength(100)]],
-      // laboral: this.fb.array([this.createLaboral()],Validators.required),
-      // referencia: this.fb.array([this.createReferencia()], Validators.required),
-      // hijos: this.fb.array([this.createHijos()])
+      laboral: this.fb.array([this.createLaboral()],Validators.required),
+      referencia: this.fb.array([this.createReferencia()], Validators.required),
+      hijos: this.fb.array([this.createHijos()])
     });
   }
 
