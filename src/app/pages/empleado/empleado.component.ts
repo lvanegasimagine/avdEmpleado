@@ -155,7 +155,9 @@ export class EmpleadoComponent implements OnInit {
   }
 
   actualizarEmpleado(){
-    console.log(this.formEmpleado.value);
+    this.empleadoService.updateEmpleado(this.formEmpleado.value, this.id).subscribe(resp => {
+        console.log('Usuario Actualizado');
+    })
   }
   
   // TODO: fb Laboral
