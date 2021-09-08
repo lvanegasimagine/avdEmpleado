@@ -15,7 +15,8 @@ export class EmpleadoComponent implements OnInit {
   formEmpleado: FormGroup;
   empleadoList: Empleado[] = [];
   categoriaArea: CategoriaArea[] = [];
-  public nivelAcademico: string[] = ['Bachiller','Universitario','Egresado','Posgrado','Doctorado'];
+  nivelAcademico: string[] = ['Bachiller','Universitario','Egresado','Posgrado','Doctorado'];
+  esEditable = false;
 
   constructor(private fb: FormBuilder, private empleadoService: EmpleadoService, private router: Router) { }
 
