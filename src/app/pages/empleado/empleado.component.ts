@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { EmpleadoService } from '../../service/empleado.service';
 import { CategoriaArea } from '../interfaces/categoriaArea.interface';
 import { Empleado } from '../interfaces/empleado.interface';
@@ -17,12 +17,17 @@ export class EmpleadoComponent implements OnInit {
   categoriaArea: CategoriaArea[] = [];
   nivelAcademico: string[] = ['Bachiller','Universitario','Egresado','Posgrado','Doctorado'];
   esEditable = false;
+  id = '';
 
-  constructor(private fb: FormBuilder, private empleadoService: EmpleadoService, private router: Router) { }
+  constructor(private fb: FormBuilder, private empleadoService: EmpleadoService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.initFormulario();
-    this.getEmpleados();
+    this.id = this.activatedRoute.snapshot.params.id;
+    if(this.id !== undefined){
+      this.esEditable=true;
+    }
+    // this.getEmpleados();
     this.getCategoriaArea();
   }
 

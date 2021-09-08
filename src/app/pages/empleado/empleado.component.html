@@ -184,7 +184,7 @@
                                   </div>
           
                                   <div class="col-md-3">
-                                      <input formControlName='celular' data-bs-toggle="tooltip" data-bs-placement="top" title="Celular" id="{{'celular' + i}}" type="number" class="form-control mb-4" placeholder="Celular" />
+                                      <input formControlName='celular' data-bs-toggle="tooltip" data-bs-placement="top" title="Celular" id="{{'celular' + i}}" type="text" class="form-control mb-4" placeholder="Celular" />
                                   </div>
                                   <div class="col-md-1">
                                       <button class="btn btn-danger" (click)='borrarReferencia(i)'><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -198,7 +198,8 @@
                   </div>
                 </mat-step>
               </mat-stepper>
-              <button type="submit" class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;" (click)="guardar()"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+              <button *ngIf="!esEditable" type="submit" class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;" (click)="guardar()"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+              <button *ngIf="esEditable" type="submit" class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;" (click)="guardar()"><i class="fab fa-telegram-plane"></i>&nbsp;Actualizar</button>
               <button class="btn btn-primary mt-4" style="margin-left: 2rem; letter-spacing: 2px;" routerLink="/dashboard/listado"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp; Regresar</button>
             </form>
           </div>
