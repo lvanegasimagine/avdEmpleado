@@ -9,6 +9,7 @@ import { PruebaComponent } from './prueba/prueba.component';
 const childRoutes: Routes = [
   { path: 'listado', component: ListadoEmpleadoComponent },
   { path: 'empleado', component: EmpleadoComponent },
+  { path: 'empleado/actualizar/:id', component: EmpleadoComponent },
   { path: 'reporte/:id', component: ReporteEmpleadoComponent},
   { path: 'main', component: DashboardComponent },
 ]
