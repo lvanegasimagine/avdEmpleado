@@ -39,9 +39,9 @@
     <ng-container matColumnDef="tools">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> tools </th>
       <td mat-cell *matCellDef="let element">
-        <button class="btn btn-primary" style="height: 10%;" [routerLink]="['/dashboard/empleado/actualizar', element.id]"><i class="fas fa-pen"></i></button>&nbsp; 
-        <button class="btn btn-success" [routerLink]="['/dashboard/reporte/', element.id]"><i class="far fa-eye"></i></button>&nbsp; 
-        <button class="btn btn-danger" style="height: 10%;" (click)="deleteEmpleado(element.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>&nbsp; 
+        <button class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Actualizar" style="height: 10%;" [routerLink]="['/dashboard/empleado/actualizar', element.id]"><i class="fas fa-pen"></i></button>&nbsp; 
+        <button class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Detalles" [routerLink]="['/dashboard/reporte/', element.id]"><i class="far fa-eye"></i></button>&nbsp; 
+        <button class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar" style="height: 10%;" (click)="deleteEmpleado(element.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>&nbsp; 
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

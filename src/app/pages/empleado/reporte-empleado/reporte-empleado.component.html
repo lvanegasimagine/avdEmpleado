@@ -1,3 +1,88 @@
-<pre>
+<!-- <pre>
     {{empleado | json}}
-</pre>
+</pre> -->
+<div class="card invoice">
+    <div class="card-header p-4 p-md-5 border-bottom-0 bg-gradient-primary-to-secondary text-white-50">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-12 col-lg-auto mb-5 mb-lg-0 text-center text-lg-start">
+                <!-- Invoice branding-->
+                <img class="invoice-brand-img rounded-circle mb-4" src="../../../../assets/assets/img/demo/demo-logo.svg" alt="" />
+                <div class="h2 text-white mb-0">{{empleado.nombre}}</div>
+                {{empleado.direccion}}
+                <br/>
+                {{empleado.email}}
+            </div>
+            <div class="col-12 col-lg-auto text-center text-lg-end">
+                <!-- Invoice details-->
+                <div class="h3 text-white">Datos Generales</div>
+                Fecha Nacimiento: {{empleado.fechaNacimiento | date: 'd MMMM, y'}}
+                <br />
+                Inss: {{empleado.inss}}
+                <br/>
+                Cedúla: {{empleado.cedula}}
+                <br/>
+                Celular: {{empleado.celular}}
+                <br/>
+                Estado Civil: {{empleado.estadoCivil}}
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4 p-md-5">
+        <!-- Invoice table-->
+        <div class="table-responsive">
+            <table class="table table-borderless mb-0">
+                <thead >
+                    <div class="h5 mb-0 fw-500 mt-3">Puesto Laboral</div>
+                    <hr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="fw-bold">Area Laboral</div>
+                            <div class="small text-muted d-none d-md-block">{{empleado.area.nombre}}</div>
+                        </td>
+                        <!-- <td class="text-end fw-bold"></td> -->
+                        <!-- <td class="text-end fw-bold"></td> -->
+                        <td>
+                            <div class="fw-bold">Cargo</div>
+                            <div class="small text-muted d-none d-md-block">{{empleado.cargo}}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="fw-bold">Nivel Academico</div>
+                            <div class="small text-muted d-none d-md-block">{{empleado.estudios}}</div>
+                        </td>
+                        <!-- <td class="text-end fw-bold"></td> -->
+                        <!-- <td class="text-end fw-bold"></td> -->
+                        <td>
+                            <div class="fw-bold">Fecha de Inicio</div>
+                            <div class="small text-muted d-none d-md-block">{{empleado.fechaInicio | date: 'd MMMM, y'}}</div>
+                        </td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <div class="h5 mb-0 fw-500 mt-4">Hijos</div>
+                    <hr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- <tbody>
+    <tr *ngFor="let item of empleado.hijos">
+        <td>
+            <div class="fw-bold">Nombre Completo</div>
+            <div class="small text-muted d-none d-md-block">{{item.nombre}}</div>
+        </td>
+        <td>
+            <div class="fw-bold">Edad</div>
+            <div class="small text-muted d-none d-md-block">{{item.edad}}</div>
+        </td>
+        <td>
+            <div class="fw-bold">Ocupación</div>
+            <div class="small text-muted d-none d-md-block">{{item.ocupacion}}</div>
+        </td>
+    </tr>
+</tbody> -->

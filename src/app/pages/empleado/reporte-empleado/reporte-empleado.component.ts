@@ -10,7 +10,7 @@ import { Empleado } from '../../interfaces/empleado.interface';
 export class ReporteEmpleadoComponent implements OnInit {
 
   id: string;
-  empleado: Empleado;
+  empleado: any = {};
 
   constructor(private activatedRoute: ActivatedRoute, private empleadoService: EmpleadoService) { }
 
