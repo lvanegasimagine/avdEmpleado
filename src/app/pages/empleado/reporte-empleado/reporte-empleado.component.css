@@ -1,5 +1,16 @@
 hr{
     color: #2D46B9;
-    /* width: 75%; */
     height: 3px;
+}
+
+img {
+    box-shadow: 2px 2px 5px #C11E07;
+    transition: all 0.5s ease-in-out;
+}
+
+img:hover{
+    box-shadow: 0 0 20px #C11E07;
+    width: 35px;
+    height: 35px;
+    transition: all 0.5s ease-in-out;
 }
