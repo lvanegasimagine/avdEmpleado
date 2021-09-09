@@ -110,6 +110,30 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="table table-borderless mb-0">
+                <thead >
+                    <div class="h5 mb-0 fw-500 mt-3">Referencia Personales</div>
+                    <hr>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Celular</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of empleado.referencias">
+                        <td>
+                            <div class="fw-bold small">{{item.nombre}}</div>
+                        </td>
+                        <td>
+                            <div class="fw-bold small">{{item.apellido}}</div>
+                        </td>
+                        <td>
+                            <div class="fw-bold small">{{item.celular}}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
