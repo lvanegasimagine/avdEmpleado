@@ -39,50 +39,53 @@
                     <tr>
                         <td>
                             <div class="fw-bold">Area Laboral</div>
-                            <div class="small text-muted d-none d-md-block">{{empleado.area.nombre}}</div>
+                            <div class="small text-muted">{{empleado.area.nombre}}</div>
                         </td>
                         <!-- <td class="text-end fw-bold"></td> -->
                         <!-- <td class="text-end fw-bold"></td> -->
                         <td>
                             <div class="fw-bold">Cargo</div>
-                            <div class="small text-muted d-none d-md-block">{{empleado.cargo}}</div>
+                            <div class="small text-muted">{{empleado.cargo}}</div>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <div class="fw-bold">Nivel Academico</div>
-                            <div class="small text-muted d-none d-md-block">{{empleado.estudios}}</div>
+                            <div class="small text-muted">{{empleado.estudios}}</div>
                         </td>
                         <!-- <td class="text-end fw-bold"></td> -->
                         <!-- <td class="text-end fw-bold"></td> -->
                         <td>
                             <div class="fw-bold">Fecha de Inicio</div>
-                            <div class="small text-muted d-none d-md-block">{{empleado.fechaInicio | date: 'd MMMM, y'}}</div>
+                            <div class="small text-muted">{{empleado.fechaInicio | date: 'd MMMM, y'}}</div>
                         </td>
                     </tr>
                 </tbody>
-                <thead>
-                    <div class="h5 mb-0 fw-500 mt-4">Hijos</div>
+            </table>
+            <table class="table table-borderless mb-0">
+                <thead >
+                    <div class="h5 mb-0 fw-500 mt-3">Hijos</div>
                     <hr>
+                    <tr>
+                        <th scope="col">Nombre Completo</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Ocupación</th>
+                    </tr>
                 </thead>
+                <tbody>
+                    <tr *ngFor="let item of empleado.hijos">
+                        <td>
+                            <div class="fw-bold small">{{item.nombre}}</div>
+                        </td>
+                        <td>
+                            <div class="fw-bold small">{{item.edad}}</div>
+                        </td>
+                        <td>
+                            <div class="fw-bold small">{{item.ocupacion}}</div>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
 </div>
-
-<!-- <tbody>
-    <tr *ngFor="let item of empleado.hijos">
-        <td>
-            <div class="fw-bold">Nombre Completo</div>
-            <div class="small text-muted d-none d-md-block">{{item.nombre}}</div>
-        </td>
-        <td>
-            <div class="fw-bold">Edad</div>
-            <div class="small text-muted d-none d-md-block">{{item.edad}}</div>
-        </td>
-        <td>
-            <div class="fw-bold">Ocupación</div>
-            <div class="small text-muted d-none d-md-block">{{item.ocupacion}}</div>
-        </td>
-    </tr>
-</tbody> -->
