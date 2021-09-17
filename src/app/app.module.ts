@@ -12,19 +12,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from "@angular/common";
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
+// import { LoginComponent } from './auth/login/login.component';
 registerLocaleData(localeEs, 'es')
 
 @NgModule({
   declarations: [
     AppComponent,
     NopagefoundComponent,
-    PruebaComponent
+    PruebaComponent,
+    // LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     PagesModule,
+    AuthModule,
     BrowserAnimationsModule,
     HttpClientModule
   ],
